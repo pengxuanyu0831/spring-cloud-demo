@@ -12,12 +12,6 @@
         <module name="service-demo" />
         <module name="eureka-demo" />
       </profile>
-      <profile name="Annotation profile for webapp-demo" enabled="true">
-        <sourceOutputDir name="webapp-demo/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="webapp-demo/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="spring-cloud-demo" />
-      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
