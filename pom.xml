@@ -12,6 +12,7 @@
         <module>eureka-demo</module>
         <module>service-demo</module>
         <module>webapp-demo</module>
+        <module>config-server-demo</module>
     </modules>
 
 

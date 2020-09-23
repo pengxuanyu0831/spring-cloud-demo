@@ -6,16 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="eureka-demo" />
+        <module name="service-demo" />
         <module name="webapp-demo" />
         <module name="eurekademo" />
         <module name="servicedemo" />
-        <module name="service-demo" />
-        <module name="eureka-demo" />
+        <module name="config-server-demo" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-server-demo" options="-parameters" />
       <module name="eureka-demo" options="-parameters" />
       <module name="eurekademo" options="-parameters" />
       <module name="service-demo" options="-parameters" />
