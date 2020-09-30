@@ -1,6 +1,8 @@
 package com.peng.setp.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import com.peng.setp.bean.ConsultContent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -8,6 +10,8 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -22,6 +26,7 @@ public class UserServiceImpl implements UserService {
     public static String SERVICE_NAME = "service-demo";
 
     @Autowired
+    @Resource
     private RestTemplate restTemplate;
 
     /**
@@ -55,12 +60,27 @@ public class UserServiceImpl implements UserService {
      * threadPoolProperties
      * threadPoolProperties 属性
      * coreSize   执行命令线程池的最大线程数，也就是命令执行的最大并发数，默认10
+     * @return
      */
 
     @HystrixCommand(fallbackMethod = "queryContentsFallback",
-    )               commandKey = "queryContents",
-                    groupKey = "querygroup-one",
-                    commandProperties = {
+            commandKey = "queryContents",
+            groupKey = "querygroup-one",
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests",value = "100"),
+                    @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"),
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000000000")
+            },
+            threadPoolKey = "queryContentshystrixJackpool", threadPoolProperties = {
+            @HystrixProperty(name = "coreSize", value = "100")
+    })
+    @Override
+    public List<ConsultContent> queryContents(){
+        System.out.println(Thread.currentThread().getName()+"========queryContent");
+        s.incrementAndGet();
+        List<ConsultContent> result = restTemplate.getForObject("http://" + SERVICE_NAME + "/user/queryContent",
+                List.class);
+        return result;
 
     }
 }
