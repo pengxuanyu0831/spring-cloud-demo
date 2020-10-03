@@ -10,6 +10,7 @@
         <module name="service-demo" />
         <module name="webapp-demo" />
         <module name="eurekademo" />
+        <module name="zuul-demo" />
         <module name="servicedemo" />
         <module name="config-server-demo" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="servicedemo" options="-parameters" />
       <module name="spring-cloud-demo" options="-parameters" />
       <module name="webapp-demo" options="-parameters" />
+      <module name="zuul-demo" options="-parameters" />
     </option>
   </component>
 </project>

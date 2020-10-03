@@ -13,6 +13,7 @@
         <module>service-demo</module>
         <module>webapp-demo</module>
         <module>config-server-demo</module>
+        <module>zuul-demo</module>
     </modules>
 
 
