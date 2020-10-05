@@ -14,6 +14,7 @@
         <module>webapp-demo</module>
         <module>config-server-demo</module>
         <module>zuul-demo</module>
+        <module>adminserver-demo</module>
     </modules>
 
 
