@@ -15,6 +15,7 @@
         <module>config-server-demo</module>
         <module>zuul-demo</module>
         <module>adminserver-demo</module>
+        <module>security-demo</module>
     </modules>
 
 

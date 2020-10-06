@@ -13,6 +13,7 @@
         <module name="eurekademo" />
         <module name="zuul-demo" />
         <module name="servicedemo" />
+        <module name="security-demo" />
         <module name="config-server-demo" />
       </profile>
     </annotationProcessing>
@@ -23,6 +24,7 @@
       <module name="config-server-demo" options="-parameters" />
       <module name="eureka-demo" options="-parameters" />
       <module name="eurekademo" options="-parameters" />
+      <module name="security-demo" options="-parameters" />
       <module name="service-demo" options="-parameters" />
       <module name="servicedemo" options="-parameters" />
       <module name="spring-cloud-demo" options="-parameters" />
