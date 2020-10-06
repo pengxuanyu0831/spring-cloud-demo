@@ -3,6 +3,8 @@ package com.peng.setp.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -26,8 +28,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         inMemoryUserDetailsManager.createUser(User.withUsername("pengxy").password(finalPassword).authorities("User").build());
         inMemoryUserDetailsManager.createUser(User.withUsername("admin").password(finalPassword).authorities("User").build());
         return inMemoryUserDetailsManager;
+    }
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManager() throws Exception{
+        AuthenticationManager authenticationManager = super.authenticationManagerBean();
+        return authenticationManager;
+    }
 
+
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception{
+        httpSecurity.csrf().disable();
+
+        httpSecurity.authorizeRequests()
+                .antMatchers("/oauth/**","/actuator/**").permitAll()
+                .and()
+                .httpBasic().disable();
 
     }
+
+
 
 }
