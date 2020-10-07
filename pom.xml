@@ -18,6 +18,7 @@
         <module>security-demo</module>
         <module>auth-demo</module>
         <module>auth-demo</module>
+        <module>auth-demo</module>
     </modules>
 
 
