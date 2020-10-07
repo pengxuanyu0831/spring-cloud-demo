@@ -10,6 +10,7 @@
         <module name="service-demo" />
         <module name="adminserver-demo" />
         <module name="webapp-demo" />
+        <module name="auth-demo" />
         <module name="eurekademo" />
         <module name="zuul-demo" />
         <module name="servicedemo" />
@@ -17,10 +18,14 @@
         <module name="config-server-demo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth-demo" target="8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="adminserver-demo" options="-parameters" />
+      <module name="auth-demo" options="-parameters" />
       <module name="config-server-demo" options="-parameters" />
       <module name="eureka-demo" options="-parameters" />
       <module name="eurekademo" options="-parameters" />

@@ -1,6 +1,5 @@
 package com.peng.setp.config;
 
-import org.aspectj.weaver.patterns.ITokenSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Bean
     public TokenStore tokenStore(){
+        // redis 存储方式,如果是数据库方式，就是要定义一个datasource
         return new MyRedisTokenStore(redisConnectionFactory);
 
     }

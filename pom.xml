@@ -16,6 +16,8 @@
         <module>zuul-demo</module>
         <module>adminserver-demo</module>
         <module>security-demo</module>
+        <module>auth-demo</module>
+        <module>auth-demo</module>
     </modules>
 
 
